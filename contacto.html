@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — CineStudio Pro</title>
+  <meta name="description" content="Contactanos para tu próximo proyecto audiovisual. Formulario, ubicación y horarios de atención.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#dc2626', 'accent-hover': '#b91c1c', bg: '#0a0a0a', 'bg-alt': '#141414', surface: '#1a1a1a', border: '#2a2a2a' },
+          fontFamily: { display: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+          <i data-lucide="clapperboard" class="w-6 h-6 text-white"></i>
+        </div>
+        <span class="font-display text-2xl font-bold tracking-wide">Cine<span class="text-accent">Studio</span></span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link text-sm font-medium">Inicio</a>
+        <a href="sobre-nosotros.html" class="nav-link text-sm font-medium">Sobre Nosotros</a>
+        <a href="servicios.html" class="nav-link text-sm font-medium">Servicios</a>
+        <a href="galeria.html" class="nav-link text-sm font-medium">Galería</a>
+        <a href="clases.html" class="nav-link text-sm font-medium">Clases</a>
+        <a href="precios.html" class="nav-link text-sm font-medium">Precios</a>
+        <a href="contacto.html" class="nav-link text-sm font-medium">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm">Cotizar <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+      <button class="mobile-toggle lg:hidden text-white p-2" aria-label="Menu"><i data-lucide="menu" class="w-7 h-7"></i></button>
+    </div>
+    <div class="mobile-menu lg:hidden bg-bg-alt border-t border-border mt-4">
+      <div class="flex flex-col py-4 px-6 space-y-4">
+        <a href="index.html" class="text-base font-medium hover:text-accent transition">Inicio</a>
+        <a href="sobre-nosotros.html" class="text-base font-medium hover:text-accent transition">Sobre Nosotros</a>
+        <a href="servicios.html" class="text-base font-medium hover:text-accent transition">Servicios</a>
+        <a href="galeria.html" class="text-base font-medium hover:text-accent transition">Galería</a>
+        <a href="clases.html" class="text-base font-medium hover:text-accent transition">Clases</a>
+        <a href="precios.html" class="text-base font-medium hover:text-accent transition">Precios</a>
+        <a href="contacto.html" class="text-base font-medium hover:text-accent transition">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm text-center mt-2">Cotizar ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-40 pb-12 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <span class="reveal text-accent text-sm font-semibold uppercase tracking-widest">Contacto</span>
+      <h1 class="reveal font-display text-5xl md:text-7xl font-bold mt-4 mb-6">
+        Hablemos de tu <span class="text-gradient">proyecto</span>
+      </h1>
+      <p class="reveal text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+        Estamos listos para escucharte y convertir tu visión en realidad.
+      </p>
+    </div>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="py-8 px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="reveal card rounded-xl p-6 text-center">
+        <div class="w-14 h-14 mx-auto bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+          <i data-lucide="phone" class="w-6 h-6 text-accent"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Teléfono</h3>
+        <p class="text-gray-400 text-sm" id="phone-display">+54 11 5555 1234</p>
+        <p class="text-gray-400 text-sm" id="whatsapp-display">WhatsApp: +54 9 11 5555 1234</p>
+      </div>
+      <div class="reveal card rounded-xl p-6 text-center" style="transition-delay: 100ms">
+        <div class="w-14 h-14 mx-auto bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+          <i data-lucide="mail" class="w-6 h-6 text-accent"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Email</h3>
+        <p class="text-gray-400 text-sm" id="email-display">contacto@cinestudio.pro</p>
+        <p class="text-gray-400 text-sm">Respuesta en 24hs</p>
+      </div>
+      <div class="reveal card rounded-xl p-6 text-center" style="transition-delay: 200ms">
+        <div class="w-14 h-14 mx-auto bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+          <i data-lucide="map-pin" class="w-6 h-6 text-accent"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Estudio</h3>
+        <p class="text-gray-400 text-sm" id="address-display">Av. Producción 1234<br>Distrito Audiovisual</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO Y MAPA -->
+  <section class="py-16 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Formulario -->
+      <div class="reveal-left bg-surface border border-border rounded-2xl p-8">
+        <h2 class="font-display text-3xl font-bold mb-2">Envianos un mensaje</h2>
+        <p class="text-gray-400 mb-8">Completá el formulario y nos pondremos en contacto a la brevedad.</p>
+        
+        <form id="contact-form" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label class="block text-sm font-medium mb-2">Nombre *</label>
+              <input type="text" name="name" required class="form-input" placeholder="Tu nombre">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Teléfono</label>
+              <input type="tel" name="phone" class="form-input" placeholder="+54 11 ...">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Email *</label>
+            <input type="email" name="email" required class="form-input" placeholder="tu@email.com">
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Servicio de interés</label>
+            <select name="service" class="form-input">
+              <option value="">Seleccioná un servicio</option>
+              <option>Producción Audiovisual</option>
+              <option>Edición y Postproducción</option>
+              <option>Producción de Audio</option>
+              <option>Streaming y Transmisión</option>
+              <option>Fotografía Profesional</option>
+              <option>Publicidad y Contenido</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">Mensaje *</label>
+            <textarea name="message" required class="form-input" placeholder="Contanos sobre tu proyecto..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full justify-center">
+            Enviar mensaje
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Mapa y horarios -->
+      <div class="reveal-right space-y-6">
+        <!-- Mapa -->
+        <div class="bg-surface border border-border rounded-2xl overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.943297891242!2d-58.3825826847701!3d-34.60373898045936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacf8f4c5d6b%3A0x9c3f7d0c5f0e5b4a!2sPuerto%20Madero%2C%20CABA!5e0!3m2!1ses!2sar!4v1700000000000" 
+            width="100%" 
+            height="280" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            class="grayscale-[20%]">
+          </iframe>
+        </div>
+
+        <!-- Horarios -->
+        <div class="bg-surface border border-border rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+              <i data-lucide="clock" class="w-5 h-5 text-accent"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold">Horarios de atención</h3>
+          </div>
+          <ul class="space-y-3" id="hours-list"></ul>
+        </div>
+
+        <!-- Redes -->
+        <div class="bg-surface border border-border rounded-2xl p-6">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
+              <i data-lucide="share-2" class="w-5 h-5 text-accent"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold">Redes sociales</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <a href="#" class="flex items-center gap-3 p-3 bg-bg border border-border rounded-lg hover:border-accent transition">
+              <i data-lucide="instagram" class="w-5 h-5 text-accent"></i>
+              <span class="text-sm">Instagram</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 bg-bg border border-border rounded-lg hover:border-accent transition">
+              <i data-lucide="youtube" class="w-5 h-5 text-accent"></i>
+              <span class="text-sm">YouTube</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 bg-bg border border-border rounded-lg hover:border-accent transition">
+              <i data-lucide="facebook" class="w-5 h-5 text-accent"></i>
+              <span class="text-sm">Facebook</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 p-3 bg-bg border border-border rounded-lg hover:border-accent transition">
+              <i data-lucide="music-2" class="w-5 h-5 text-accent"></i>
+              <span class="text-sm">TikTok</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICACIÓN -->
+  <div id="toast" class="toast">
+    <i data-lucide="check-circle" class="w-6 h-6 text-accent"></i>
+    <div>
+      <div class="font-semibold">¡Mensaje enviado!</div>
+      <div class="text-sm text-gray-400">Te contactaremos pronto.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-bg-alt border-t border-border py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center"><i data-lucide="clapperboard" class="w-6 h-6 text-white"></i></div>
+            <span class="font-display text-2xl font-bold">Cine<span class="text-accent">Studio</span></span>
+          </a>
+          <p class="text-gray-400 max-w-md">Productora audiovisual especializada en cine, publicidad y contenido digital de alto impacto.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Navegación</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-accent transition">Inicio</a></li>
+            <li><a href="sobre-nosotros.html" class="hover:text-accent transition">Sobre Nosotros</a></li>
+            <li><a href="servicios.html" class="hover:text-accent transition">Servicios</a></li>
+            <li><a href="galeria.html" class="hover:text-accent transition">Galería</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Legal</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="privacidad.html" class="hover:text-accent transition">Políticas de Privacidad</a></li>
+            <li><a href="terminos.html" class="hover:text-accent transition">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2026 CineStudio Pro. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="music-2" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    (function() {
+      function waitForTailwind(retries = 30) {
+        return new Promise((resolve) => {
+          const check = () => {
+            const t = document.createElement('div');
+            t.className = 'hidden';
+            document.body.appendChild(t);
+            const ok = window.getComputedStyle(t).display === 'none';
+            document.body.removeChild(t);
+            if (ok || retries <= 0) resolve();
+            else setTimeout(() => check(--retries), 50);
+          };
+          check();
+        });
+      }
+
+      function init() {
+        const data = window.PRODUCTORA_DATA;
+        const info = data && data.contactInfo;
+        
+        if (info) {
+          document.querySelector('#phone-display').textContent = info.phone;
+          document.querySelector('#whatsapp-display').textContent = `WhatsApp: ${info.whatsapp}`;
+          document.querySelector('#email-display').textContent = info.email;
+          document.querySelector('#address-display').innerHTML = info.address.replace(', ', ',<br>');
+          
+          const hoursList = document.querySelector('#hours-list');
+          hoursList.innerHTML = info.hours.map(h => `
+            <li class="flex justify-between items-center py-2 border-b border-border last:border-b-0">
+              <span class="text-gray-300">${h.day}</span>
+              <span class="font-semibold text-white">${h.hours}</span>
+            </li>
+          `).join('');
+        }
+
+        const form = document.querySelector('#contact-form');
+        const toast = document.querySelector('#toast');
+        
+        if (form) {
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            toast.classList.add('show');
+            form.reset();
+            setTimeout(() => toast.classList.remove('show'), 4000);
+          });
+        }
+      }
+
+      function start() {
+        waitForTailwind().then(init);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    })();
+  </script>
+</body>
+</html>

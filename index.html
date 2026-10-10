@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineStudio Pro — Productora Audiovisual</title>
+  <meta name="description" content="Productora audiovisual profesional. Producción, edición, postproducción y contenido para marcas.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#dc2626',
+            'accent-hover': '#b91c1c',
+            bg: '#0a0a0a',
+            'bg-alt': '#141414',
+            surface: '#1a1a1a',
+            border: '#2a2a2a'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans">
+
+  <!-- ============== NAVBAR ============== -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+          <i data-lucide="clapperboard" class="w-6 h-6 text-white"></i>
+        </div>
+        <span class="font-display text-2xl font-bold tracking-wide">Cine<span class="text-accent">Studio</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link text-sm font-medium">Inicio</a>
+        <a href="sobre-nosotros.html" class="nav-link text-sm font-medium">Sobre Nosotros</a>
+        <a href="servicios.html" class="nav-link text-sm font-medium">Servicios</a>
+        <a href="galeria.html" class="nav-link text-sm font-medium">Galería</a>
+        <a href="clases.html" class="nav-link text-sm font-medium">Clases</a>
+        <a href="precios.html" class="nav-link text-sm font-medium">Precios</a>
+        <a href="contacto.html" class="nav-link text-sm font-medium">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm">
+          Cotizar
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle lg:hidden text-white p-2" aria-label="Menu">
+        <i data-lucide="menu" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu lg:hidden bg-bg-alt border-t border-border mt-4">
+      <div class="flex flex-col py-4 px-6 space-y-4">
+        <a href="index.html" class="text-base font-medium hover:text-accent transition">Inicio</a>
+        <a href="sobre-nosotros.html" class="text-base font-medium hover:text-accent transition">Sobre Nosotros</a>
+        <a href="servicios.html" class="text-base font-medium hover:text-accent transition">Servicios</a>
+        <a href="galeria.html" class="text-base font-medium hover:text-accent transition">Galería</a>
+        <a href="clases.html" class="text-base font-medium hover:text-accent transition">Clases</a>
+        <a href="precios.html" class="text-base font-medium hover:text-accent transition">Precios</a>
+        <a href="contacto.html" class="text-base font-medium hover:text-accent transition">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm text-center mt-2">Cotizar ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============== HERO ============== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay-gradient"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent text-sm font-semibold mb-8">
+          <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+          Productora Audiovisual desde 2014
+        </span>
+      </div>
+      
+      <h1 class="reveal font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
+        Contamos <span class="text-gradient">historias</span><br>
+        que <span class="italic text-accent">inspiran</span>
+      </h1>
+      
+      <p class="reveal text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+        Producción cinematográfica, contenido para marcas y experiencias audiovisuales de alto impacto.
+      </p>
+      
+      <div class="reveal flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contacto.html" class="btn-primary">
+          Iniciar proyecto
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <a href="galeria.html" class="btn-outline">
+          <i data-lucide="play" class="w-5 h-5"></i>
+          Ver portafolio
+        </a>
+      </div>
+
+      <!-- Mini stats -->
+      <div class="reveal grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-white" data-counter="350" data-suffix="+">0+</div>
+          <div class="text-sm text-gray-400 mt-1">Proyectos</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-white" data-counter="80" data-suffix="+">0+</div>
+          <div class="text-sm text-gray-400 mt-1">Clientes</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-white" data-counter="25" data-suffix="">0</div>
+          <div class="text-sm text-gray-400 mt-1">Premios</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-white" data-counter="12" data-suffix="+">0+</div>
+          <div class="text-sm text-gray-400 mt-1">Años</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
+      <i data-lucide="chevron-down" class="w-8 h-8"></i>
+    </div>
+  </section>
+
+  <!-- ============== SERVICIOS DESTACADOS ============== -->
+  <section class="py-24 px-6 bg-bg">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="reveal text-accent text-sm font-semibold uppercase tracking-widest">Lo que hacemos</span>
+        <h2 class="reveal font-display text-4xl md:text-5xl font-bold mt-3">Nuestros Servicios</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-preview"></div>
+
+      <div class="reveal text-center mt-12">
+        <a href="servicios.html" class="btn-outline">
+          Ver todos los servicios
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA ============== -->
+  <section class="py-24 px-6 bg-gradient-to-b from-bg to-bg-alt">
+    <div class="reveal max-w-4xl mx-auto text-center bg-surface border border-border rounded-2xl p-12 lg:p-16 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10">
+        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">¿Listo para crear algo increíble?</h2>
+        <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Hablemos sobre tu próximo proyecto y hagamos realidad tu visión.</p>
+        <a href="contacto.html" class="btn-primary text-base">
+          Contactar ahora
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="bg-bg-alt border-t border-border py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+              <i data-lucide="clapperboard" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="font-display text-2xl font-bold">Cine<span class="text-accent">Studio</span></span>
+          </a>
+          <p class="text-gray-400 max-w-md">Productora audiovisual especializada en cine, publicidad y contenido digital de alto impacto.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Navegación</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-accent transition">Inicio</a></li>
+            <li><a href="sobre-nosotros.html" class="hover:text-accent transition">Sobre Nosotros</a></li>
+            <li><a href="servicios.html" class="hover:text-accent transition">Servicios</a></li>
+            <li><a href="galeria.html" class="hover:text-accent transition">Galería</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Legal</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="privacidad.html" class="hover:text-accent transition">Políticas de Privacidad</a></li>
+            <li><a href="terminos.html" class="hover:text-accent transition">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2026 CineStudio Pro. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="Instagram"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="YouTube"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="Facebook"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition" aria-label="TikTok"><i data-lucide="music-2" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    (function() {
+      function renderServices() {
+        const data = window.PRODUCTORA_DATA;
+        const container = document.querySelector('#services-preview');
+        if (container && data && data.services) {
+          container.innerHTML = data.services.slice(0, 6).map((s, i) => `
+            <div class="card rounded-xl p-6 reveal" style="transition-delay: ${i * 80}ms">
+              <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                <i data-lucide="${s.icon}" class="w-6 h-6 text-accent"></i>
+              </div>
+              <h3 class="font-display text-xl font-bold mb-2">${s.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">${s.description}</p>
+            </div>
+          `).join('');
+          if (window.lucide) window.lucide.createIcons();
+          if (window.setupReveal) window.setupReveal();
+        }
+      }
+
+      // Esperar a Tailwind antes de pintar
+      function waitForTailwind(retries = 30) {
+        return new Promise((resolve) => {
+          const check = () => {
+            const t = document.createElement('div');
+            t.className = 'hidden';
+            document.body.appendChild(t);
+            const ok = window.getComputedStyle(t).display === 'none';
+            document.body.removeChild(t);
+            if (ok || retries <= 0) resolve();
+            else setTimeout(() => check(--retries), 50);
+          };
+          check();
+        });
+      }
+
+      function init() {
+        waitForTailwind().then(renderServices);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</body>
+</html>

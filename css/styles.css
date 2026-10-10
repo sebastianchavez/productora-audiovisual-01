@@ -1,0 +1,511 @@
+/* ============================================
+   PRODUCTORA AUDIOVISUAL - ESTILOS COMPARTIDOS
+   ============================================ */
+
+/* Variables base */
+:root {
+  --color-bg: #0a0a0a;
+  --color-bg-alt: #141414;
+  --color-surface: #1a1a1a;
+  --color-border: #2a2a2a;
+  --color-text: #f5f5f5;
+  --color-text-muted: #a3a3a3;
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
+  --color-accent-glow: rgba(220, 38, 38, 0.4);
+}
+
+/* Tipografías */
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0px);
+}
+
+.navbar.scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.mobile-menu.open {
+  max-height: 500px;
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.85)),
+    url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.hero-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fallback: si JS falla o tarda, los elementos se muestran */
+.no-js .reveal,
+.no-js .reveal-left,
+.no-js .reveal-right {
+  opacity: 1;
+  transform: none;
+}
+
+/* Safety: tras 3s, forzar visibilidad */
+.safety-revealed .reveal,
+.safety-revealed .reveal-left,
+.safety-revealed .reveal-right {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Si JS falla completamente (clase añadida por falta de soporte) */
+body.no-js .reveal,
+body.no-js .reveal-left,
+body.no-js .reveal-right {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================
+   CARDS & HOVER
+   ============================================ */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card-highlighted {
+  border-color: var(--color-accent);
+  position: relative;
+}
+
+.card-highlighted::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 30px var(--color-accent-glow);
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.875rem 2rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px var(--color-accent-glow);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+  padding: 0.875rem 2rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   GALERÍA
+   ============================================ */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  aspect-ratio: 4/3;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* Filtros */
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+}
+
+.filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.open {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.3);
+  transition: background 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: var(--color-accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+.form-input {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  padding: 0.875rem 1rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 140px;
+}
+
+/* ============================================
+   STATS COUNTERS
+   ============================================ */
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #f87171 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+/* ============================================
+   TABLA HORARIOS
+   ============================================ */
+.schedule-row {
+  transition: background 0.3s ease;
+}
+
+.schedule-row:hover {
+  background: rgba(220, 38, 38, 0.05);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+/* Animación texto degradado */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Toast notificación */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  z-index: 9999;
+  transform: translateX(120%);
+  transition: transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.toast.show {
+  transform: translateX(0);
+}

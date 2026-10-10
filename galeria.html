@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería — CineStudio Pro</title>
+  <meta name="description" content="Portafolio de proyectos audiovisuales: cortometrajes, publicidad, eventos y fotografía.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#dc2626', 'accent-hover': '#b91c1c', bg: '#0a0a0a', 'bg-alt': '#141414', surface: '#1a1a1a', border: '#2a2a2a' },
+          fontFamily: { display: ['"Playfair Display"', 'serif'], sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+          <i data-lucide="clapperboard" class="w-6 h-6 text-white"></i>
+        </div>
+        <span class="font-display text-2xl font-bold tracking-wide">Cine<span class="text-accent">Studio</span></span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link text-sm font-medium">Inicio</a>
+        <a href="sobre-nosotros.html" class="nav-link text-sm font-medium">Sobre Nosotros</a>
+        <a href="servicios.html" class="nav-link text-sm font-medium">Servicios</a>
+        <a href="galeria.html" class="nav-link text-sm font-medium">Galería</a>
+        <a href="clases.html" class="nav-link text-sm font-medium">Clases</a>
+        <a href="precios.html" class="nav-link text-sm font-medium">Precios</a>
+        <a href="contacto.html" class="nav-link text-sm font-medium">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm">Cotizar <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+      <button class="mobile-toggle lg:hidden text-white p-2" aria-label="Menu"><i data-lucide="menu" class="w-7 h-7"></i></button>
+    </div>
+    <div class="mobile-menu lg:hidden bg-bg-alt border-t border-border mt-4">
+      <div class="flex flex-col py-4 px-6 space-y-4">
+        <a href="index.html" class="text-base font-medium hover:text-accent transition">Inicio</a>
+        <a href="sobre-nosotros.html" class="text-base font-medium hover:text-accent transition">Sobre Nosotros</a>
+        <a href="servicios.html" class="text-base font-medium hover:text-accent transition">Servicios</a>
+        <a href="galeria.html" class="text-base font-medium hover:text-accent transition">Galería</a>
+        <a href="clases.html" class="text-base font-medium hover:text-accent transition">Clases</a>
+        <a href="precios.html" class="text-base font-medium hover:text-accent transition">Precios</a>
+        <a href="contacto.html" class="text-base font-medium hover:text-accent transition">Contacto</a>
+        <a href="contacto.html" class="btn-primary text-sm text-center mt-2">Cotizar ahora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-40 pb-12 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <span class="reveal text-accent text-sm font-semibold uppercase tracking-widest">Portafolio</span>
+      <h1 class="reveal font-display text-5xl md:text-7xl font-bold mt-4 mb-6">
+        Nuestra <span class="text-gradient">galería</span>
+      </h1>
+      <p class="reveal text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
+        Una selección de proyectos que reflejan nuestra pasión por la excelencia audiovisual.
+      </p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="py-8 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-wrap justify-center gap-3 reveal">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="video">Videos</button>
+        <button class="filter-btn" data-filter="foto">Fotografía</button>
+        <button class="filter-btn" data-filter="evento">Eventos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA GRID -->
+  <section class="py-8 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-close"><i data-lucide="x" class="w-6 h-6"></i></div>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- CTA -->
+  <section class="py-24 px-6">
+    <div class="reveal max-w-4xl mx-auto text-center bg-surface border border-border rounded-2xl p-12 relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10">
+        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">¿Tu proyecto es el próximo?</h2>
+        <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Sumá tu historia a nuestro portafolio.</p>
+        <a href="contacto.html" class="btn-primary text-base">Empezar ahora <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-bg-alt border-t border-border py-12 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="md:col-span-2">
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center"><i data-lucide="clapperboard" class="w-6 h-6 text-white"></i></div>
+            <span class="font-display text-2xl font-bold">Cine<span class="text-accent">Studio</span></span>
+          </a>
+          <p class="text-gray-400 max-w-md">Productora audiovisual especializada en cine, publicidad y contenido digital de alto impacto.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Navegación</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-accent transition">Inicio</a></li>
+            <li><a href="sobre-nosotros.html" class="hover:text-accent transition">Sobre Nosotros</a></li>
+            <li><a href="servicios.html" class="hover:text-accent transition">Servicios</a></li>
+            <li><a href="galeria.html" class="hover:text-accent transition">Galería</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4">Legal</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="privacidad.html" class="hover:text-accent transition">Políticas de Privacidad</a></li>
+            <li><a href="terminos.html" class="hover:text-accent transition">Términos y Condiciones</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section-divider mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2026 CineStudio Pro. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+          <a href="#" class="text-gray-400 hover:text-accent transition"><i data-lucide="music-2" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
