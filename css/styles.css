@@ -27,6 +27,7 @@
 /* Base */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -66,6 +67,7 @@ body {
 .navbar {
   transition: all 0.3s ease;
   backdrop-filter: blur(0px);
+  background: rgba(10, 10, 10, 0.94);
 }
 
 .navbar.scrolled {
@@ -109,7 +111,9 @@ body {
 }
 
 .mobile-menu.open {
-  max-height: 500px;
+  max-height: calc(100dvh - 7rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* ============================================
@@ -118,6 +122,8 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
+  padding-block: 8rem 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,6 +232,7 @@ body.no-js .reveal-right {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.1), transparent);
   transition: left 0.6s ease;
+  pointer-events: none;
 }
 
 .card:hover {
@@ -508,4 +515,161 @@ textarea.form-input {
 
 .toast.show {
   transform: translateX(0);
+}
+/* Responsive foundations shared by every page. */
+:where(h1, h2, h3, p, a, li) {
+  overflow-wrap: anywhere;
+}
+
+:where(.grid, .flex) > * {
+  min-width: 0;
+}
+
+:where(.btn-primary, .btn-outline) {
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+  min-height: 44px;
+}
+
+:where(.btn-primary, .btn-outline, summary, h2) > :where(svg, [data-lucide]) {
+  flex-shrink: 0;
+}
+
+.mobile-menu:not(.open) {
+  visibility: hidden;
+}
+
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.mobile-menu a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.price-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+}
+
+.price-amount {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  line-height: 1.2;
+}
+
+#pricing-grid > .card {
+  display: flex;
+  flex-direction: column;
+}
+
+#pricing-grid > .card > a {
+  margin-top: auto;
+}
+
+.form-input {
+  min-width: 0;
+  font-size: 1rem;
+}
+
+summary {
+  gap: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 767px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(24px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 9vw, 3.75rem);
+  }
+
+  .hero .mt-20 {
+    margin-top: 2.5rem;
+  }
+
+  .hero .gap-8 {
+    gap: 1.5rem;
+  }
+
+  .hero > .absolute.bottom-8 {
+    bottom: 1rem;
+  }
+
+  .stat-number {
+    font-size: clamp(2.25rem, 10vw, 3.5rem);
+  }
+
+  .schedule-row {
+    gap: 0.75rem;
+  }
+
+  .schedule-row > span {
+    justify-self: start;
+  }
+
+  .prose h2 {
+    align-items: flex-start;
+    font-size: 1.25rem;
+  }
+
+  .prose h2 > span {
+    flex-shrink: 0;
+  }
+
+  #hours-list li {
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    visibility: hidden;
+    transform: translateY(calc(100% + 2rem));
+  }
+
+  .toast.show {
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lightbox {
+    padding: 1rem;
+  }
+
+  .lightbox img {
+    max-width: 100%;
+    max-height: 80dvh;
+  }
+}
+
+@media (hover: none) {
+  .gallery-overlay {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1;
+    transform: none;
+  }
 }

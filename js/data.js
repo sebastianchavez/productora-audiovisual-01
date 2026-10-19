@@ -138,11 +138,11 @@ const schedule = [
   }
 ];
 
-// Planes / Precios
+// Precios referenciales de plantilla en pesos chilenos (CLP).
 const pricing = [
   {
     plan: 'Básico',
-    price: '$3',
+    price: '$350.000',
     period: '/proyecto',
     description: 'Ideal para pequeños emprendimientos y contenido digital.',
     features: [
@@ -156,7 +156,7 @@ const pricing = [
   },
   {
     plan: 'Profesional',
-    price: '$8',
+    price: '$850.000',
     period: '/proyecto',
     description: 'La opción más popular para marcas y productoras medianas.',
     features: [
@@ -197,16 +197,16 @@ const stats = [
   { value: 25, suffix: '', label: 'Premios obtenidos' }
 ];
 
-// Información de contacto
+// Datos de contacto de ejemplo: reemplazar por los datos reales antes de publicar.
 const contactInfo = {
   company: 'CineStudio Pro',
-  address: 'Av. Producción 1234, Distrito Audiovisual, Ciudad Creativa',
-  phone: '+54 11 5555 1234',
-  whatsapp: '+54 9 11 5555 1234',
-  email: 'contacto@cinestudio.pro',
+  address: 'Santiago, Región Metropolitana, Chile',
+  phone: '+56 9 1234 5678',
+  whatsapp: '+56 9 1234 5678',
+  email: 'contacto@cinestudio.cl',
   hours: [
-    { day: 'Lunes a Viernes', hours: '9:00 - 20:00 hs' },
-    { day: 'Sábados', hours: '10:00 - 14:00 hs' },
+    { day: 'Lunes a Viernes', hours: '09:00 - 20:00 h' },
+    { day: 'Sábados', hours: '10:00 - 14:00 h' },
     { day: 'Domingos', hours: 'Cerrado' }
   ],
   social: {

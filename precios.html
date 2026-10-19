@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@
         </div>
         <span class="font-display text-2xl font-bold tracking-wide">Cine<span class="text-accent">Studio</span></span>
       </a>
-      <div class="hidden lg:flex items-center gap-8">
+      <div class="hidden xl:flex items-center gap-6">
         <a href="index.html" class="nav-link text-sm font-medium">Inicio</a>
         <a href="sobre-nosotros.html" class="nav-link text-sm font-medium">Sobre Nosotros</a>
         <a href="servicios.html" class="nav-link text-sm font-medium">Servicios</a>
@@ -46,9 +46,9 @@
         <a href="contacto.html" class="nav-link text-sm font-medium">Contacto</a>
         <a href="contacto.html" class="btn-primary text-sm">Cotizar <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
-      <button class="mobile-toggle lg:hidden text-white p-2" aria-label="Menu"><i data-lucide="menu" class="w-7 h-7"></i></button>
+      <button class="mobile-toggle xl:hidden text-white p-2" aria-label="Abrir menú"><i data-lucide="menu" class="w-7 h-7"></i></button>
     </div>
-    <div class="mobile-menu lg:hidden bg-bg-alt border-t border-border mt-4">
+    <div class="mobile-menu xl:hidden bg-bg-alt border-t border-border mt-4">
       <div class="flex flex-col py-4 px-6 space-y-4">
         <a href="index.html" class="text-base font-medium hover:text-accent transition">Inicio</a>
         <a href="sobre-nosotros.html" class="text-base font-medium hover:text-accent transition">Sobre Nosotros</a>
@@ -67,18 +67,19 @@
     <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent"></div>
     <div class="max-w-5xl mx-auto text-center relative z-10">
       <span class="reveal text-accent text-sm font-semibold uppercase tracking-widest">Planes y Precios</span>
-      <h1 class="reveal font-display text-5xl md:text-7xl font-bold mt-4 mb-6">
+      <h1 class="reveal font-display text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
         Inversión <span class="text-gradient">inteligente</span><br>en tu proyecto
       </h1>
       <p class="reveal text-gray-300 text-lg md:text-xl max-w-3xl mx-auto">
-        Elegí el plan que mejor se adapte a tus necesidades. Todos personalizables.
+        Elige el plan que mejor se adapte a tus necesidades. Todos personalizables.
       </p>
+      <p class="text-sm text-gray-400 mt-4">Valores referenciales en pesos chilenos (CLP). El total y los impuestos aplicables se detallan en la cotización final.</p>
     </div>
   </section>
 
   <!-- PRICING -->
   <section class="py-12 px-6">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6" id="pricing-grid"></div>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6" id="pricing-grid"></div>
   </section>
 
   <!-- FAQ -->
@@ -86,7 +87,7 @@
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <span class="reveal text-accent text-sm font-semibold uppercase tracking-widest">Preguntas frecuentes</span>
-        <h2 class="reveal font-display text-4xl md:text-5xl font-bold mt-3">Resolvemos tus dudas</h2>
+        <h2 class="reveal font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-3">Resolvemos tus dudas</h2>
       </div>
       <div class="space-y-4">
         <details class="card rounded-xl p-6 reveal">
@@ -122,7 +123,7 @@
             ¿Puedo personalizar un plan?
             <i data-lucide="chevron-down" class="w-5 h-5"></i>
           </summary>
-          <p class="text-gray-400 mt-4">¡Por supuesto! Todos nuestros planes son personalizables. Contactanos y armamos una propuesta a medida de tu proyecto y presupuesto.</p>
+          <p class="text-gray-400 mt-4">¡Por supuesto! Todos nuestros planes son personalizables. Contáctanos y armamos una propuesta a medida de tu proyecto y presupuesto.</p>
         </details>
       </div>
     </div>
@@ -130,10 +131,10 @@
 
   <!-- CTA -->
   <section class="py-24 px-6">
-    <div class="reveal max-w-4xl mx-auto text-center bg-surface border border-border rounded-2xl p-12 relative overflow-hidden">
+    <div class="reveal max-w-4xl mx-auto text-center bg-surface border border-border rounded-2xl p-6 sm:p-10 md:p-12 relative overflow-hidden">
       <div class="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
       <div class="relative z-10">
-        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">¿Necesitás algo a medida?</h2>
+        <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">¿Necesitas algo a medida?</h2>
         <p class="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Creamos propuestas personalizadas para cada proyecto.</p>
         <a href="contacto.html" class="btn-primary text-base">Cotización personalizada <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
       </div>
@@ -206,12 +207,12 @@
         const grid = document.querySelector('#pricing-grid');
         if (grid && data && data.pricing) {
           grid.innerHTML = data.pricing.map((p, i) => `
-            <div class="card rounded-2xl p-8 ${p.highlighted ? 'card-highlighted transform md:scale-105' : ''} reveal" style="transition-delay: ${i * 100}ms">
+            <div class="card rounded-2xl p-5 sm:p-8 ${p.highlighted ? 'card-highlighted' : ''} reveal" style="transition-delay: ${i * 100}ms">
               ${p.highlighted ? '<div class="inline-block bg-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-4">MÁS POPULAR</div>' : ''}
               <h3 class="font-display text-2xl font-bold mb-2">${p.plan}</h3>
               <p class="text-gray-400 text-sm mb-6 min-h-[40px]">${p.description}</p>
-              <div class="mb-6">
-                <span class="text-5xl font-display font-bold">${p.price}</span>
+              <div class="price-block mb-6">
+                <span class="price-amount font-display font-bold">${p.price}</span>
                 <span class="text-gray-400">${p.period}</span>
               </div>
               <ul class="space-y-3 mb-8">
