@@ -585,12 +585,14 @@ summary {
   outline-offset: 4px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .reveal-left,
   .reveal-right {
     transform: translateY(24px);
   }
+}
 
+@media (max-width: 767px) {
   .hero h1 {
     font-size: clamp(2.25rem, 9vw, 3.75rem);
   }
